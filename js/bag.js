@@ -44,3 +44,7 @@ class Bag {
     }
   }
 }
+
+ctx.fillStyle = 'blue';
+ctx.font = '30px Arial';
+ctx.fillText(`${this.ancientCoins.quantity}`, 150, 150);
