@@ -99,10 +99,10 @@ class Battle {
 
       ctx.fillStyle = 'black';
       ctx.font = '18px Arial';
-      ctx.fillText('Attack', 360, 399);
-      ctx.fillText('Monster', 360, 429);
-      ctx.fillText('Item', 510, 399);
-      ctx.fillText('Escape', 510, 429);
+      ctx.fillText('打架', 360, 399);
+      ctx.fillText('畫師', 360, 429);
+      ctx.fillText('物品', 510, 399);
+      ctx.fillText('逃跑', 510, 429);
 
       ctx.strokeStyle = 'black';
       ctx.lineWidth = 2;
@@ -119,12 +119,12 @@ class Battle {
 
         ctx.fillStyle = 'black';
         ctx.font = '18px Arial';
-        ctx.fillText('What do you want to do first?', 20, 399);
+        ctx.fillText('你想對他幹嘛?', 20, 399);
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
         ctx.strokeRect(0, 369, 320, 111);
 
-      } else if (this.moveSelected === 'attack') {
+      } else if (this.moveSelected === '打架') {
         ctx.fillStyle = 'rgba(255, 255, 255)';
         ctx.fillRect(0, 369, 320, 111);
 
@@ -147,10 +147,14 @@ class Battle {
         ctx.fillStyle = 'black';
         ctx.font = '16px Arial';
         // ctx.drawImage(this.playerMonsters[this.playerMonsterIndex].image, 360, 390, 50, 50);
-        ctx.fillText(`Name: ${this.activePlayerMonster.skills[this.skillSelected-1].name}`, 420, 410);
-        ctx.fillText(`Damage: ${this.activePlayerMonster.skills[this.skillSelected-1].damage}`, 420, 430);
-        ctx.fillText(`Type: ${this.activePlayerMonster.skills[this.skillSelected-1].type}`, 420, 450);
-        
+
+        ctx.fillText(`技能資訊`, 330, 390);
+        ctx.fillText(`名字: ${this.activePlayerMonster.skills[this.skillSelected-1].name}`, 420, 390);
+        ctx.fillText(`傷害: ${this.activePlayerMonster.skills[this.skillSelected-1].damage}`, 420, 410);
+        ctx.fillText(`類型: ${this.activePlayerMonster.skills[this.skillSelected-1].type}`, 420, 430);
+        ctx.fillText(`目標: ${this.activePlayerMonster.skills[this.skillSelected-1].effectType}`, 420, 450);
+        ctx.fillText(`PP: ${this.activePlayerMonster.skills[this.skillSelected-1].pp}`, 420, 470);
+
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
         ctx.strokeRect(0, 369, 320, 111);
@@ -159,7 +163,7 @@ class Battle {
         ctx.lineWidth = 2;
         ctx.strokeRect(320, 369, 320, 111);
 
-      } else if (this.moveSelected === 'monster') {
+      } else if (this.moveSelected === '畫師') {
         // Show the list of monsters
         ctx.fillStyle = 'rgba(255, 255, 255)';
         ctx.fillRect(0, 369, 320, 111);
@@ -187,19 +191,19 @@ class Battle {
         ctx.fillStyle = 'black';
         ctx.font = '16px Arial';
         ctx.drawImage(this.playerMonsters[this.playerMonsterIndex].image, 360, 390, 50, 50);
-        ctx.fillText(`Name: ${this.playerMonsters[this.playerMonsterIndex].name}`, 420, 410);
-        ctx.fillText(`Health: ${this.playerMonsters[this.playerMonsterIndex].currentHealth}/${this.playerMonsters[this.playerMonsterIndex].baseHealth}`, 420, 430);
-        ctx.fillText(`Level: ${this.playerMonsters[this.playerMonsterIndex].level}`, 420, 450);
+        ctx.fillText(`名字: ${this.playerMonsters[this.playerMonsterIndex].name}`, 420, 410);
+        ctx.fillText(`體力: ${this.playerMonsters[this.playerMonsterIndex].currentHealth}/${this.playerMonsters[this.playerMonsterIndex].baseHealth}`, 420, 430);
+        ctx.fillText(`等級: ${this.playerMonsters[this.playerMonsterIndex].level}`, 420, 450);
         // ctx.fillText('${this.playerMonsters[i].name}', 360, 399);
         // ctx.fillText('${this.playerMonsters[i].name}', 360, 429);
-        // ctx.fillText('Item', 510, 399);
+        // ctx.fillText('物品', 510, 399);
         // ctx.fillText('Escape', 510, 429);
 
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
         ctx.strokeRect(320, 369, 320, 111);
 
-      } else if (this.moveSelected === 'item') {
+      } else if (this.moveSelected === '物品') {
         ctx.fillStyle = 'rgba(255, 255, 255)';
         ctx.fillRect(0, 369, 320, 111);
 
@@ -249,9 +253,9 @@ class Battle {
     // Draw battle background
     ctx.drawImage(this.battleBackground, 0, 0, 640, 480);
     if (this.activePlayerMonster.animationInProgress && !this.activePlayerMonster.animationafterProgress){
-      this.drawTextMessage(ctx, `Something happening in ${this.activePlayerMonster.name} ...`);
+      this.drawTextMessage(ctx, `有怪事在 ${this.activePlayerMonster.name} ...發生`);
     } else if (this.activePlayerMonster.animationInProgress && this.activePlayerMonster.animationafterProgress){
-      this.drawTextMessage(ctx, `Evolve to ${this.activePlayerMonster.name}!`);
+      this.drawTextMessage(ctx, `成長為 ${this.activePlayerMonster.name}!`);
     } else {
       this.drawMoveSelection(ctx);
     }
@@ -319,6 +323,11 @@ class Battle {
       ctx.fillText(`${this.activePlayerMonster.name} Lv.${this.activePlayerMonster.level}`, 70, 175-this.activeEnemyMonster.image.height/2+80 + 20);
       ctx.fillStyle = 'red';
       ctx.fillRect(70, 175-this.activeEnemyMonster.image.height/2+80 +30, 128 * (this.activePlayerMonster.currentHealth / this.activePlayerMonster.baseHealth), 10);
+      
+      ctx.fillStyle = 'black';
+      ctx.font = '12px Arial';
+      ctx.fillText(`HP: ${this.activePlayerMonster.currentHealth}/${this.activePlayerMonster.baseHealth}`, 150,185);
+      
       ctx.fillStyle = 'black';
       ctx.font = '12px Arial';
       ctx.fillText(`Exp: ${this.activePlayerMonster.experience}/${this.activePlayerMonster.maxExperience}`, 70, 175-this.activeEnemyMonster.image.height/2+80+55);
@@ -331,9 +340,17 @@ class Battle {
       ctx.strokeRect(410, 175-this.activeEnemyMonster.image.height/2+80, 170, 60);
       ctx.fillStyle = 'black';
       ctx.font = '16px Arial';
-      ctx.fillText(`${this.activeEnemyMonster.name} Lv.${this.activeEnemyMonster.level}`, 420, 175-this.activeEnemyMonster.image.height/2+80+20);
+      ctx.fillText(`${this.activeEnemyMonster.name} Lv.${this.activeEnemyMonster.level}`, 420, 175-this.activeEnemyMonster.image.height/2+80+20); 
+      ctx.fillStyle = 'black';
+      ctx.font = '16px Arial';
+      ctx.fillText(`類型: ${this.activeEnemyMonster.type}`, 420, 185);
+
       ctx.fillStyle = 'red';
       ctx.fillRect(420, 175-this.activeEnemyMonster.image.height/2+80 +30, 128 * (this.activeEnemyMonster.currentHealth / this.activeEnemyMonster.baseHealth), 10);
+      ctx.fillStyle = 'black';
+      ctx.font = '12px Arial';
+      ctx.fillText(`HP: ${this.activeEnemyMonster.currentHealth}/${this.activeEnemyMonster.baseHealth}`, 500, 185);
+  
     }
 
     // // Draw health bars
@@ -352,9 +369,9 @@ class Battle {
     ctx.fillStyle = 'black';
     ctx.font = '18px Arial';
     if (this.meetingTrainer && this.isWildBattle) {
-      ctx.fillText(`A wild ${this.activeEnemyMonster.name} appeared!`, 20, 399);
+      ctx.fillText(`一個野生的 ${this.activeEnemyMonster.name} 出現!`, 20, 399);
     } else {
-      ctx.fillText('Meet trainer', 20, 399);
+      ctx.fillText('遇到想蕉流的畫師♂♂', 20, 399);
       }
 
     ctx.strokeStyle = 'black';
@@ -416,19 +433,19 @@ class Battle {
       } else if (input === ' ') {
         // Select the highlighted action
         if (this.actionSelected === 0) {
-          this.moveSelected = 'attack';
+          this.moveSelected = '打架';
           this.skillSelected = 1;
         } else if (this.actionSelected === 2) {
-          this.moveSelected = 'monster';
-          // Handle 'Monster' action selection
+          this.moveSelected = '畫師';
+          // Handle '畫師' action selection
         } else if (this.actionSelected === 1) {
-          this.moveSelected = 'item';
-          // Handle 'Item' action selection
+          this.moveSelected = '物品';
+          // Handle '物品' action selection
         } else if (this.actionSelected === 3) {
           if (this.isWildBattle){
             this.end();
           } else {
-            this.currentMessage = "You can't escape from trainer battle!!"
+            this.currentMessage = "不准逃!"
             setTimeout(() => {
               this.currentMessage = ''; // Clear the message after a delay
             }, 1500);
@@ -436,7 +453,7 @@ class Battle {
           // Handle 'Escape' action selection
         }
       }
-    } else if (this.moveSelected === 'attack' && !this.currentMessage && !this.activePlayerMonster.animationInProgress) {
+    } else if (this.moveSelected === '打架' && !this.currentMessage && !this.activePlayerMonster.animationInProgress) {
       if (input === 'ArrowUp' || input === 'ArrowDown') {
         // Toggle between attack skills
         if (input === 'ArrowUp') {
@@ -455,7 +472,7 @@ class Battle {
           // Perform the selected attack
         const selectedSkill = this.activePlayerMonster.skills[this.skillSelected - 1];
         this.skillEffectProgress = 0;
-        this.currentMessage = `${this.activePlayerMonster.name} used ${selectedSkill.name}!`; // Add this line to set the attack message
+        this.currentMessage = `${this.activePlayerMonster.name} 使用 ${selectedSkill.name}!`; // Add this line to set the attack message
         setTimeout(() => {
           this.currentMessage = ''; // Clear the message after a delay
         }, 2000);
@@ -470,14 +487,14 @@ class Battle {
         );
 
 
-        if (selectedSkill.effectType === 'enemy') {
+        if (selectedSkill.effectType === '敵人') {
           this.activeEnemyMonster.currentHealth -= damage;
           if (this.activeEnemyMonster.currentHealth < 0) {
               this.activeEnemyMonster.currentHealth = 0;
             }
 
 
-        } else if (selectedSkill.effectType === 'self') {
+        } else if (selectedSkill.effectType === '自身') {
           this.activePlayerMonster.currentHealth += damage;
           if (this.activePlayerMonster.currentHealth > this.activePlayerMonster.maxHealth) {
             this.activePlayerMonster.currentHealth = this.activePlayerMonster.maxHealth;
@@ -495,7 +512,7 @@ class Battle {
             this.activeEnemyMonster.baseHealth
           );
           this.activePlayerMonster.gainExperience(expGain);
-          this.currentMessage = `${this.activeEnemyMonster.name} is out of health, You earn the ${expGain} exp!!`
+          this.currentMessage = `${this.activeEnemyMonster.name} 被擊倒了, 你得到 ${expGain} 經驗!!`
 
           setTimeout(() => {
             this.currentMessage = ''; // Clear the message after a delay
@@ -521,7 +538,7 @@ class Battle {
 
           if (this.enemyMonsterIndex >= this.enemyMonsters.length) {
             // No more enemy monsters, end the battle
-            this.currentMessage = `You Win the Battle !!, win ${this.price} coins`
+            this.currentMessage = `你贏了, 搶走 ${this.price} 金幣`
             const interactingNPC = npcs.find(npc => playerIsTouchingNPC(window.player, npc, window.map.startX, window.map.startY));
 
             // Remove the NPC by its ID
@@ -544,7 +561,7 @@ class Battle {
             }, 2000); 
             return;
           } else {
-            this.currentMessage = `${this.activeEnemyMonster.name} is out of health, You earn the ${Math.floor(expGain*1.5)} exp, Trainer call ${this.enemyMonsters[this.enemyMonsterIndex].name}!!`
+            this.currentMessage = `${this.activeEnemyMonster.name} 被擊敗了, 你得到 ${Math.floor(expGain*1.5)} 經驗, 切換 ${this.enemyMonsters[this.enemyMonsterIndex].name}!!`
             setTimeout(() => {
               this.currentMessage = ''; // Clear the message after a delay
             }, 1500);
@@ -570,7 +587,7 @@ class Battle {
           );
 
           this.enemySkillEffectProgress = 0;
-          this.currentMessage = `${this.activeEnemyMonster.name} used ${enemySkill.name}!`; // Add this line to set the enemy attack message
+          this.currentMessage = `${this.activeEnemyMonster.name}使用 ${enemySkill.name}!`; // Add this line to set the enemy attack message
           setTimeout(() => {
             this.currentMessage = ''; // Clear the message after a delay
           }, 1000);
@@ -579,12 +596,12 @@ class Battle {
           }, 1000);
 
           // Apply the selected skill's effect
-          if (enemySkill.effectType === 'enemy') {
+          if (enemySkill.effectType === '敵人') {
             this.activePlayerMonster.currentHealth -= enemyDamage;
             if (this.activePlayerMonster.currentHealth < 0) {
               this.activePlayerMonster.currentHealth = 0;
             }
-          } else if (enemySkill.effectType === 'self') {
+          } else if (enemySkill.effectType === '自身') {
             this.activeEnemyMonster.currentHealth += enemyDamage;
             if (this.activeEnemyMonster.currentHealth > this.activeEnemyMonster.maxHealth) {
               this.activeEnemyMonster.currentHealth = this.activeEnemyMonster.maxHealth;
@@ -606,10 +623,10 @@ class Battle {
             if (this.countDeadMonsters(this.playerMonsters) >= this.playerMonsters.length) {
               // No more player monsters, end the battle
               if (!this.isWildBattle){
-                this.currentMessage = `You Loss the Battle !!, you lose ${this.price/2} coins`
+                this.currentMessage = `你輸了!!,你失去 ${this.price/2} 金幣`
                 playerBag.removeAncientCoins(this.price/2)
               } else {
-                this.currentMessage = `You Loss the Battle !!`
+                this.currentMessage = `你被畫技征服了 !!`
               }
               
               
@@ -620,7 +637,7 @@ class Battle {
               // this.end();
             } else {
               const nextAlivePlayerMonster = this.playerMonsters.find(monster => monster.isAlive());
-              this.currentMessage = `Go ! ${nextAlivePlayerMonster.name} to fight !!`
+              this.currentMessage = `上吧 ! ${nextAlivePlayerMonster.name}去嘎 !!`
               setTimeout(() => {
                 this.currentMessage = ''; // Clear the message after a delay
               }, 1500);
@@ -629,12 +646,12 @@ class Battle {
           }
         }, 1000);
         this.moveSelected = null;
-      } else if (input === 'Escape') {
+      } else if (input === '逃跑') {
         this.moveSelected = null;
       }
-    } else if (input === 'Escape') {
+    } else if (input === '逃跑') {
       this.moveSelected = null;
-    } else if (this.moveSelected === 'monster') {
+    } else if (this.moveSelected === '畫師') {
       if (input === 'ArrowUp') {
         if (this.playerMonsterIndex > 0) {
           this.playerMonsterIndex--;
@@ -651,7 +668,7 @@ class Battle {
         this.activePlayerMonster = this.playerMonsters[this.playerMonsterIndex];
         this.moveSelected = null;
       }
-    } else if (this.moveSelected === 'item') {
+    } else if (this.moveSelected === '物品') {
       if (input === 'ArrowUp') {
         if (this.itemSelected > 0) {
           this.itemSelected--;
@@ -663,7 +680,7 @@ class Battle {
       } else if (input === ' ') {
         // Get the selected item name
         const selectedItemName = Object.keys(playerBag.items)[this.itemSelected];
-        if (selectedItemName === 'Temple Crystal' && this.isWildBattle) {
+        if (selectedItemName === '捕捉道具' && this.isWildBattle) {
           // Calculate the catch probability
           const itemCatchRate = 1; // Adjust this value for different catching items
           const catchProbability = this.calculateCatchProbability(this.activeEnemyMonster, itemCatchRate);
@@ -678,14 +695,14 @@ class Battle {
             }
             const target = this.activePlayerMonster;
             playerBag.useItem(selectedItemName, target);
-            this.currentMessage = `You Catch the ${this.activeEnemyMonster.name}!!`
+            this.currentMessage = `你誘拐到 ${this.activeEnemyMonster.name}!!`
               setTimeout(() => {
                 this.currentMessage = '';
                 this.end(); // Clear the message after a delay
               }, 1000);
             
           } else {
-            this.currentMessage = `${this.activeEnemyMonster.name} don't want to join you !!`
+            this.currentMessage = `${this.activeEnemyMonster.name} 對你露出厭惡的表情，不想加入你 !!`
               setTimeout(() => {
                 this.currentMessage = '';
                 return; // Clear the message after a delay
@@ -704,7 +721,7 @@ class Battle {
               );
 
               this.enemySkillEffectProgress = 0;
-              this.currentMessage = `${this.activeEnemyMonster.name} used ${enemySkill.name}!`; // Add this line to set the enemy attack message
+              this.currentMessage = `${this.activeEnemyMonster.name} 使用 ${enemySkill.name}!`; // Add this line to set the enemy attack message
               setTimeout(() => {
                 this.currentMessage = ''; // Clear the message after a delay
               }, 1000);
@@ -713,12 +730,12 @@ class Battle {
               }, 1000);
 
               // Apply the selected skill's effect
-              if (enemySkill.effectType === 'enemy') {
+              if (enemySkill.effectType === '敵人') {
                 this.activePlayerMonster.currentHealth -= enemyDamage;
                 if (this.activePlayerMonster.currentHealth < 0) {
                   this.activePlayerMonster.currentHealth = 0;
                 }
-              } else if (enemySkill.effectType === 'self') {
+              } else if (enemySkill.effectType === '自身') {
                 this.activeEnemyMonster.currentHealth += enemyDamage;
                 if (this.activeEnemyMonster.currentHealth > this.activeEnemyMonster.maxHealth) {
                   this.activeEnemyMonster.currentHealth = this.activeEnemyMonster.maxHealth;
@@ -739,7 +756,7 @@ class Battle {
 
                 if (this.countDeadMonsters(this.playerMonsters) >= this.playerMonsters.length) {
                   // No more player monsters, end the battle
-                  this.currentMessage = `You Loss the Battle !!`
+                  this.currentMessage = `你輸了 !!`
                   setTimeout(() => {
                     this.currentMessage = '';
                     this.end(); // Clear the message after a delay
@@ -747,7 +764,7 @@ class Battle {
                   // this.end();
                 } else {
                   const nextAlivePlayerMonster = this.playerMonsters.find(monster => monster.isAlive());
-                  this.currentMessage = `Go ! ${nextAlivePlayerMonster.name} to fight !!`
+                  this.currentMessage = `上吧 ! ${nextAlivePlayerMonster.name} 去嘎 !!`
                   setTimeout(() => {
                     this.currentMessage = ''; // Clear the message after a delay
                   }, 1500);
@@ -758,8 +775,8 @@ class Battle {
 
             // Failed to catch the monster
           }
-        } else if (selectedItemName === 'Temple Crystal' && !this.isWildBattle){
-            this.currentMessage = `You Can't Catch the trainer's Monster !!`
+        } else if (selectedItemName === '捕捉道具' && !this.isWildBattle){
+            this.currentMessage = `你不能誘拐已經有經紀人的畫師 !!`
               setTimeout(() => {
                 this.currentMessage = '';
                 return; // Clear the message after a delay
@@ -778,7 +795,7 @@ class Battle {
 
         // Reset moveSelected
         this.moveSelected = null;
-      } else if (input === 'Escape') {
+      } else if (input === '逃跑') {
         this.moveSelected = null;
       }
     }
