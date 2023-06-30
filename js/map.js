@@ -49,7 +49,7 @@ const wildAreasBounds = [
   { monster: 28, probability: 0.01 },
   { monster: 33, probability: 0.25 },
   { monster: 35, probability: 0.1 },
-  { monster: 44, probability: 0.2 },
+  { monster: 45, probability: 0.2 },
 ] }, 
   { x: 945, y: 880, width: 100, height: 100,
   minLevel: 9, maxLevel: 15,
