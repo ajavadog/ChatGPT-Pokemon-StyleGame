@@ -31,7 +31,7 @@ class Menu {
 
     ctx.fillStyle = 'blue';
     ctx.font = '30px Arial';
-    ctx.fillText(`Player Monster`, 230, 50);
+    ctx.fillText(`旗下畫家`, 230, 50);
 
 
     ctx.fillStyle = 'black';
@@ -52,7 +52,7 @@ class Menu {
         ctx.strokeRect(10, y - 25, ctx.canvas.width / 2 - 20, lineHeight);
       }
 
-      ctx.fillText(`${monster.name} (Level: ${monster.level})`, 20, y);
+      ctx.fillText(`${monster.name} (等級: ${monster.level})`, 20, y);
     });
 
     // Draw the selected monster sprite and details
@@ -64,13 +64,13 @@ class Menu {
       // ctx.fillText(`Type: ${selectedMonster.type}`, infoX, startY + 130);
 
       // Draw monster's skills
-      ctx.fillText('Skills:', infoX, startY + 230);
+      ctx.fillText('技能:', infoX, startY + 230);
       selectedMonster.skills.forEach((skill, index) => {
         ctx.fillText(`${index + 1}. ${skill.name}`, infoX, startY + 250 + index * 20);
       });
 
       // Draw current experience/max experience
-      ctx.fillText(`Experience: ${selectedMonster.experience}/${selectedMonster.maxExperience}`, infoX, startY + 270 + selectedMonster.skills.length * 20);
+      ctx.fillText(`經驗值: ${selectedMonster.experience}/${selectedMonster.maxExperience}`, infoX, startY + 270 + selectedMonster.skills.length * 20);
     }
   }
 
@@ -81,7 +81,7 @@ class Menu {
 
     ctx.fillStyle = 'blue';
     ctx.font = '30px Arial';
-    ctx.fillText(`Temple Monster`, 230, 50);
+    ctx.fillText(`倉庫...`, 230, 50);
 
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
@@ -96,7 +96,7 @@ class Menu {
         ctx.strokeRect(10, y - 25, ctx.canvas.width / 2 - 20, lineHeight);
       }
 
-      ctx.fillText(`${monster.name} (Level: ${monster.level})`, 20, y);
+      ctx.fillText(`${monster.name} (等級: ${monster.level})`, 20, y);
     });
 
     // Draw the selected monster sprite and details
@@ -108,13 +108,13 @@ class Menu {
       // ctx.fillText(`Type: ${selectedMonster.type}`, infoX, startY + 130);
 
       // Draw monster's skills
-      ctx.fillText('Skills:', infoX, startY + 230);
+      ctx.fillText('技能:', infoX, startY + 230);
       selectedMonster.skills.forEach((skill, index) => {
         ctx.fillText(`${index + 1}. ${skill.name}`, infoX, startY + 250 + index * 20);
       });
 
       // Draw current experience/max experience
-      ctx.fillText(`Experience: ${selectedMonster.experience}/${selectedMonster.maxExperience}`, infoX, startY + 270 + selectedMonster.skills.length * 20);
+      ctx.fillText(`經驗: ${selectedMonster.experience}/${selectedMonster.maxExperience}`, infoX, startY + 270 + selectedMonster.skills.length * 20);
     }
   }
 
@@ -124,10 +124,11 @@ class Menu {
     const detailsX = ctx.canvas.width /2;
 
     ctx.drawImage(monster.image, spriteX, spriteY, monster.image.width / 2, monster.image.height / 2);
-    ctx.fillText(`Name: ${monster.name}`, detailsX, spriteY + 20 + monster.image.height / 2);
-    ctx.fillText(`Health: ${monster.currentHealth}/${monster.baseHealth}`, detailsX, spriteY + 40 + monster.image.height / 2);
-    ctx.fillText(`Level: ${monster.level}`, detailsX, spriteY + 60 + monster.image.height / 2);
-    ctx.fillText(`Type: ${monster.type}`, detailsX, spriteY + 80 + monster.image.height / 2);
+    ctx.fillText(`名稱: ${monster.name}`, detailsX, spriteY + 20 + monster.image.height / 2);
+    ctx.fillText(`生命: ${monster.currentHealth}/${monster.baseHealth}`, detailsX, spriteY + 40 + monster.image.height / 2);
+    ctx.fillText(`等級: ${monster.level}`, detailsX, spriteY + 60 + monster.image.height / 2);
+    ctx.fillText(`類型: ${monster.type}`, detailsX, spriteY + 80 + monster.image.height / 2);
+    
     // ctx.fillText(`Level: ${monster.level}`, detailsX, spriteY + 100 + monster.image.height / 4);
   }
 
@@ -152,7 +153,7 @@ class Menu {
 
     ctx.fillStyle = 'blue';
     ctx.font = '30px Arial';
-    ctx.fillText(`Items`, 250, 50);
+    ctx.fillText(`物品`, 250, 50);
 
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
@@ -175,9 +176,9 @@ class Menu {
     ctx.fillStyle = 'red';
     ctx.font = '20px Arial';
 
-    // Draw ancient coins
+    // Draw 金幣
     const ancientCoinsY = startY + Object.keys(playerBag.items).length * lineHeight;
-    ctx.fillText(`Ancient Coins (${playerBag.ancientCoins})`, itemTextX, ancientCoinsY);
+    ctx.fillText(`金幣 (${playerBag.ancientCoins})`, itemTextX, ancientCoinsY);
 
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
@@ -191,7 +192,7 @@ class Menu {
       ctx.drawImage(itemSprite, itemInfoX, startY, 100, 100);
 
 
-      ctx.fillText('Item information:', itemInfoX, startY + 130);
+      ctx.fillText('道具資訊:', itemInfoX, startY + 130);
       ctx.fillText(`${selectedItem.description}`, itemInfoX, startY + 160);
       // ctx.fillText(`Type: ${selectedItem.type}`, itemInfoX, startY + 160);
     } else {
