@@ -32,9 +32,9 @@ const ItemType = {
 // Define items
 const items = {
   catchMonster: new Item(
-    'Temple Crystal',
+    '捕捉道具',
     ItemType.CATCH_MONSTER,
-    'Catch a wild monster',
+    'ˋ抓野生畫師用特殊道具，疑似媚藥',
     (target) => {
       // Implement the catch monster effect here
     },
@@ -43,9 +43,9 @@ const items = {
   ),
 
   recoverHealth: new Item(
-    'Recover Health',
+    '一串團子',
     ItemType.RECOVER_HEALTH,
-    'Recover health of a monster',
+    '治療畫家50生命，雖然味道不是很好',
     (target) => {
       const recoverAmount = 50;
       if (target.isAlive()){
@@ -57,9 +57,9 @@ const items = {
   ),
 
   reviveMonster: new Item(
-    'Revive Monster',
+    '復活畫家',
     ItemType.REVIVE_MONSTER,
-    'Revive a fainted monster',
+    '復活你被榨乾的畫家，很神奇吧',
     (target) => {
       if (target.currentHealth === 0) {
         target.currentHealth = Math.floor(target.baseHealth * 0.5);
@@ -70,8 +70,44 @@ const items = {
   ),
 
   ancientCoin: new AncientCoin(
-    'Ancient Coin',
+    '金幣',
     'A rare and valuable ancient coin',
     'assets/images/catchMonster.png'
   ),
 };
+const bag = new Bag();
+
+// 增加 金幣 和物品
+bag.addAncientCoins(10);
+bag.addItem(new Item('Potion', 'Restores 50 HP', () => console.log('HP restored!')), 3);
+bag.addItem(new Item('Ether', 'Restores 50 MP', () => console.log('MP restored!')), 1);
+
+// 更新頁面
+updatePage();
+
+function updatePage() {
+  // 更新 金幣 的數量
+  const coinCount = document.getElementById('coin-count');
+  coinCount.innerText = bag.ancientCoins;
+
+  // 更新物品列表
+  const itemList = document.getElementById('item-list');
+  itemList.innerHTML = '';
+
+  Object.values(bag.items).forEach(({item, quantity}) => {
+    const itemElem = document.createElement('li');
+    const itemQuantityElem = document.createElement('span');
+    const itemNameElem = document.createElement('span');
+    const itemDescElem = document.createElement('span');
+
+    itemQuantityElem.innerText = quantity + 'x ';
+    itemNameElem.innerText = item.name;
+    itemDescElem.innerText = ' - ' + item.description;
+
+    itemElem.appendChild(itemQuantityElem);
+    itemElem.appendChild(itemNameElem);
+    itemElem.appendChild(itemDescElem);
+
+    itemList.appendChild(itemElem);
+  });
+}
