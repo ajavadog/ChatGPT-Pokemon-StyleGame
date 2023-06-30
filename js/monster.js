@@ -180,103 +180,103 @@ const skill31 = new Skill('', 80, 8, '瑟瑟', '敵人', 'assets/images/skills/w
 const skill32 = new Skill('', 80, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill33 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill34 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill35 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill34 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill35 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill36 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill37 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill37 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill38 = new Skill('', 80, 8, '瑟瑟', '敵人', 'assets/images/skills/wavecrash.png');
 const skill39 = new Skill('', 80, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill40 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill41 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill41 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill42 = new Skill('', 80, 8, '瑟瑟', '敵人', 'assets/images/skills/wavecrash.png');
 const skill43 = new Skill('', 80, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill44 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill45 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill45 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill46 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill47 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill48 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill49 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill48 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill49 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill50 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill51 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill51 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill52 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill53 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill54 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill54 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill55 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill56 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill57 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill57 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill58 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill59 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill60 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill61 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill62 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill60 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill61 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill62 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 
-const skill63 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill64 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill63 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill64 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill65 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill66 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill66 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill67 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill68 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill69 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill69 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill70 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill71 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill72 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill72 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill73 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill74 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill75 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill76 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill75 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill76 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill77 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill78 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill79 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill79 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill80 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill81 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill82 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill83 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill83 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill84 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill108 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill85 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill85 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill86 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill87 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill88 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill88 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 const skill89 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill90 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill90 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 
-const skill91 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill92 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill93 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill91 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill92 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill93 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 
-const skill94 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill95 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill96 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill94 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill95 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill96 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 
 const skill97 = new Skill('hanabi', 30, 8, '可愛', '敵人', 'assets/images/skills/earthquake.png');
 const skill98 = new Skill('角角衝撞', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill99 = new Skill('貓貓撒嬌', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 const skill100 = new Skill('零食的怨念', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
 
-const skill101 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill102 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill103 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill104 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill101 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill102 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill103 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill104 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 
-const skill105 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill106 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
-const skill107 = new Skill('', 50, 8, '帥氣', '自身', 'assets/images/skills/earthquake.png');
+const skill105 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill106 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
+const skill107 = new Skill('', 50, 8, '帥氣', '敵人', 'assets/images/skills/earthquake.png');
 
 
 const monsterDictionary = {
