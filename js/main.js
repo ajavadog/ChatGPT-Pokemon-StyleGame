@@ -37,10 +37,10 @@ backgroundImage.src = 'assets/images/map-background.png';
 let slideshowActive = false;
 let slideshowIndex = 0;
 const slideshowImages = [
-  {src: 'assets/images/slider1.png', text: 'Ancient monsters were once worshipped by the people of the land as deities'},
-  {src: 'assets/images/slider2.png', text: 'But over time, they were forgotten and fell into a deep slumber'},
-  {src: 'assets/images/slider3.png', text: 'A recent disturbance in the land has awakened these monsters, causing them to wreak havoc throughout the forest.'},
-  {src: 'assets/images/slider4.png', text: 'Young adventurer arriving in a small town located in the heart of a vast and mysterious forest'},
+  {src: 'assets/images/slider1.png', text: '嘎替充滿各種形形瑟瑟的人'},
+  {src: 'assets/images/slider2.png', text: '如今突然出現在這座嘎替島'},
+  {src: 'assets/images/slider3.png', text: '許多畫技強大或是色情力高的畫師在嘎替'},
+  {src: 'assets/images/slider4.png', text: '一位年輕的經紀人想收服嘎替全部的繪師，來到了這裡'},
   // Add more images here
 ];
 
@@ -78,13 +78,13 @@ function drawStartMenu(ctx) {
 
   // Draw the "START" text in the middle of the canvas
   ctx.fillStyle = 'Black';
-  ctx.font = '30px Arial';
-  ctx.fillText('Press ENTER to start', canvas.width / 2 - 150, canvas.height / 2);
+  ctx.font = '50px Arial';
+  ctx.fillText('按 ENTER 進入', canvas.width / 2 - 150, canvas.height / 2);
 
   // Draw the "START" text in the middle of the canvas
   ctx.fillStyle = 'Black';
-  ctx.font = '48px Arial';
-  ctx.fillText('Ancient Monster', canvas.width / 2 - 170, canvas.height / 2-60);
+  ctx.font = '50px Arial';
+  ctx.fillText('征服嘎替', canvas.width / 2 - 170, canvas.height / 2-60);
 
 }
 
@@ -187,7 +187,7 @@ function handleKeyDown(event) {
         npcs.push(battlenpc1)
         npcs.push(firegym)
         monsterSelectionMenu.hide();
-        messageBox.show(`You received a ${monsterSelectionMenu.monsters[monsterSelectionMenu.selectedIndex].name} from the old man!`);
+        messageBox.show(`你從一個無名人士那簽約了 ${monsterSelectionMenu.monsters[monsterSelectionMenu.selectedIndex].name} !`);
       }
       return
     }
@@ -197,11 +197,11 @@ function handleKeyDown(event) {
         itemSelectionMenu.moveSelection(-1);
       } else if (event.key === 'ArrowDown') {
         itemSelectionMenu.moveSelection(1);
-      } else if (event.key === ' ' & messageBox.text != "You don't have enough money") {
+      } else if (event.key === ' ' & messageBox.text != "你沒有足夠的金幣!") {
         console.log(playerBag.ancientCoins)
         // onSelect callback should be defined where you called showMonsterSelectionMenu
         if (playerBag.ancientCoins < itemSelectionMenu.monsters[itemSelectionMenu.selectedIndex].cost){
-            messageBox.show("You don't have enough money")
+            messageBox.show("你沒有足夠的金幣!")
         } else {
             playerBag.removeAncientCoins(itemSelectionMenu.monsters[itemSelectionMenu.selectedIndex].cost)
             playerBag.addItem(itemSelectionMenu.monsters[itemSelectionMenu.selectedIndex],1);
@@ -209,7 +209,7 @@ function handleKeyDown(event) {
 
       } else if (event.key === 'Escape'){
         itemSelectionMenu.hide();
-      } else if (event.key === ' ' & messageBox.text === "You don't have enough money"){
+      } else if (event.key === ' ' & messageBox.text === "你沒有足夠的金幣!"){
         itemSelectionMenu.updateMessageBox();
       }
       return
@@ -333,7 +333,7 @@ function handleKeyDown(event) {
                     messageBox.hide();
                     // disableMovement = false;
                     if (areAllPlayerMonstersDead(playerMonsters)) {
-                        messageBox.show('All your monsters are dead! You cannot start a battle.');
+                        messageBox.show('你沒有可以行動的畫家，不能戰鬥');
                         battleAudio.pause();
                         battleAudio.currentTime = 0;
                         backgroundAudio.play();
@@ -343,7 +343,7 @@ function handleKeyDown(event) {
                         }, 1000)
                       } else if (areAllPlayerMonstersDead(npc.battle.enemyMonsters)) {
                         // playBattleAudio();
-                        messageBox.show('I lose, keep going! bro');
+                        messageBox.show('我輸了你滾吧');
                         battleAudio.pause();
                         battleAudio.currentTime = 0;
                         backgroundAudio.play();
@@ -371,7 +371,7 @@ function handleKeyDown(event) {
                     messageBox.hide();
                     // disableMovement = false;
                     if (areAllPlayerMonstersDead(playerMonsters)) {
-                        messageBox.show('All your monsters are dead! You cannot start a battle.');
+                        messageBox.show('你旗下畫家被擊敗了，不能戰鬥');
                         battleAudio.pause();
                         battleAudio.currentTime = 0;
                         backgroundAudio.play();
@@ -409,13 +409,14 @@ function handleKeyDown(event) {
               // ...
               break;
 
-             case 'lucky_summon':
+             case '隨機簽約':
+       
                 messageBox.show(`${npc.dialog}`);
                 setTimeout(() => {
                   messageBox.hide();
                   if (playerBag.ancientCoins>= 500){
                     const summonedMonster = summonMonsterByProbability();
-                    messageBox.show(`You summoned a ${summonedMonster.name}!`);
+                    messageBox.show(`你簽約到了 ${summonedMonster.name}!`);
                     playerBag.removeAncientCoins(500);
                     if (playerMonsters.length < 6) {
                         playerMonsters.push(summonedMonster);
@@ -423,7 +424,7 @@ function handleKeyDown(event) {
                         computerMonsterStorage.push(summonedMonster);
                       }
                   } else {
-                    messageBox.show(`You don't have enough coins!`);
+                    messageBox.show(`你沒有足夠的金幣!`);
                   }
                   
 
@@ -441,12 +442,12 @@ function handleKeyDown(event) {
               // ...
               break;
 
-            case 'heal_monsters':
+            case '治癒畫師':
               messageBox.show(`${npc.dialog}`);
               setTimeout(() => {
                 healAllPlayerMonsters(playerMonsters);
                 messageBox.hide();
-                messageBox.show('All your monsters have been healed!');
+                messageBox.show('你旗下的畫家全被治癒了!');
                 setTimeout(() => {
                   messageBox.hide();
                   disableMovement = false;
@@ -475,14 +476,14 @@ function handleKeyDown(event) {
         const randomLevel = Math.floor(Math.random() * (wildArea.maxLevel - wildArea.minLevel + 1)) + wildArea.minLevel;
 
         disableMovement = true;
-        messageBox.show('A wild monster appeared!');
+        messageBox.show('一個野生的畫家出現了!');
         backgroundAudio.pause()
         playBattleAudio();
         setTimeout(() => {
           messageBox.hide();
           // disableMovement = false;
           if (areAllPlayerMonstersDead(playerMonsters)) {
-            messageBox.show('All your monsters are dead! You cannot start a battle.');
+            messageBox.show('你旗下畫家被擊敗了，不能戰鬥');
             battleAudio.pause();
             battleAudio.currentTime = 0;
             backgroundAudio.play();
@@ -746,28 +747,28 @@ const npc1Battle = new Battle(playerMonsters, npc1Monsters, false, 'assets/image
 const npc2Battle = new Battle(playerMonsters, npc2Monsters, false, 'assets/images/npc/battle2.png', 1000);
 
 
-const firegym = new NPC(1,'assets/images/npc-sprite.png', 1257, 1261, 30, 50, firegymBattle, 'I am fire gym boss, can you beat me?', 'battle');
-const grassgym = new NPC(2,'assets/images/npc-sprite.png', 628, 1019, 30, 50, grassgymBattle, 'I am grass gym boss, can you beat me?', 'battle');
-const watergym = new NPC(3,'assets/images/npc-sprite.png', 1261, 989, 30, 50, watergymBattle, 'I am water gym boss, can you beat me?', 'battle');
-const thundergym = new NPC(4,'assets/images/npc-sprite.png', 1552, 1311, 30, 50, thundergymBattle, 'I am thunder gym boss, can you beat me?', 'battle');
-const groundgym = new NPC(5,'assets/images/npc-sprite.png',  991, 745, 30, 50, groundgymBattle, 'I am ground gym boss, can you beat me?', 'battle');
-const lord = new NPC(11,'assets/images/monster/29.png', 308, 559, 120, 80, LordBattle, 'Catch me if you can', 'battle');
-const battlenpc1 = new NPC(6,'assets/images/npc-sprite.png', 990, 1340, 30, 50, npc1Battle, 'You can battle with me anytime', 'battle_nolimit');
-const battlenpc2 = new NPC(7,'assets/images/npc-sprite.png', 985, 908, 30, 50, npc2Battle, 'You can battle with me anytime', 'battle_nolimit');
-const npc2 = new NPC(8,'assets/images/npc-sprite.png', 987, 1486, 30, 50, npc2Battle, 'Welcome to ancient forests, choose your Monster', 'give_monster',[
+const firegym = new NPC(1,'assets/images/npc-sprite.png', 1257, 1261, 30, 50, firegymBattle, '路過的老奶奶，是否欺負她?', 'battle');
+const grassgym = new NPC(2,'assets/images/npc-sprite.png', 628, 1019, 30, 50, grassgymBattle, '喝醉的流浪漢，要讓他醒酒嗎?', 'battle');
+const watergym = new NPC(3,'assets/images/npc-sprite.png', 1261, 989, 30, 50, watergymBattle, '睡著的學生，給他機會教育?', 'battle');
+const thundergym = new NPC(4,'assets/images/npc-sprite.png', 1552, 1311, 30, 50, thundergymBattle, '兔男郎，好色喔，讓他知道你的厲害?', 'battle');
+const groundgym = new NPC(5,'assets/images/npc-sprite.png',  991, 745, 30, 50, groundgymBattle, '你的畫師能打敗我嗎?', 'battle');
+const lord = new NPC(11,'assets/images/monster/29.png', 308, 559, 120, 80, LordBattle, '來把我簽下啊', 'battle');
+const battlenpc1 = new NPC(6,'assets/images/npc-sprite.png', 990, 1340, 30, 50, npc1Battle, '可以隨時找我蕉流', 'battle_nolimit');
+const battlenpc2 = new NPC(7,'assets/images/npc-sprite.png', 985, 908, 30, 50, npc2Battle, '可以隨時找我蕉流', 'battle_nolimit');
+const npc2 = new NPC(8,'assets/images/npc-sprite.png', 987, 1486, 30, 50, npc2Battle, '歡迎來嘎替，我旗下有三名畫師', 'give_monster',[
     new createMonsterFromDictionary(1,4, true),
     new createMonsterFromDictionary(4,4, true),
     new createMonsterFromDictionary(7,4, true),
   ]);
 
-const npc3 = new NPC(9,'assets/images/npc-sprite.png', 645, 1430, 30, 50, npc2Battle, 'Do you want buy some items?', 'buy_items',[
+const npc3 = new NPC(9,'assets/images/npc-sprite.png', 645, 1430, 30, 50, npc2Battle, '想買點東西嗎', 'buy_items',[
     items.catchMonster,
     items.recoverHealth,
     items.reviveMonster,
   ]);
 
-const npc4 = new NPC(10,'assets/images/npc-sprite.png', 384, 1400, 30, 50, npc1Battle, 'Let me heal all your monster !!!', 'heal_monsters');
-const luckySummonNPC = new NPC(12, 'assets/images/npc-sprite.png', 497, 1447, 30, 50, npc1Battle , "Welcome to Lucky Summon! Spent 500 coins to get luck !!", 'lucky_summon');
+const npc4 = new NPC(10,'assets/images/npc-sprite.png', 384, 1400, 30, 50, npc1Battle, '讓我治癒你的畫師 !!!', '治癒畫師');
+const luckySummonNPC = new NPC(12, 'assets/images/npc-sprite.png', 497, 1447, 30, 50, npc1Battle , "花500金幣隨便簽約畫師 !!", '隨機簽約');
 const messageBox = new MessageBox(20, 360, 600, 100);
 // const monsterSelectionMessageBox = new MessageBox(20, 360, 600, 100);
 const monsterSelectionMenu = new SelectMenu(messageBox);
@@ -779,8 +780,8 @@ const playerBag = new Bag();
 
 // Add some items to the player's bag
 playerBag.addItem(items.catchMonster, 30);
-playerBag.addItem(items.recoverHealth, 10);
-playerBag.addItem(items.reviveMonster, 3);
+playerBag.addItem(items.recoverHealth, 5);
+playerBag.addItem(items.reviveMonster, 2);
 playerBag.addAncientCoins(500);
 
 const menu = new Menu();
